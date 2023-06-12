@@ -125,3 +125,69 @@ footer a{
     
   }
   
+
+  
+
+  .formContiner{
+
+    height: 30px;
+    width: 800px;
+   margin-top: 20px;
+   margin-left: 10px;
+   opacity: 80%;
+
+  }
+
+
+  /* .employeeForm{
+
+
+
+  } */
+
+  /* .formSelect{
+
+    border: 2px solid #0b4979;
+    border-radius: 15%;
+
+
+  } */
+
+  /* .inputForm{
+
+    border: 2px solid #0b4979;
+
+  } */
+
+  /* .registerForm{
+
+    border: 3px solid #0b4979;
+    border-radius: 50%;
+    background-color: #0b4979;
+    height: 40px;
+    width: 70px;
+
+  } */
+
+
+  .employeeCard{
+
+    height: 350px;
+    width: 300px;
+    background-color: aqua;
+
+    margin-top: 50px;
+
+    margin-left: 20px;
+
+  }
+
+  .employeeImage{
+    position: relative;
+    height: 150px ;
+    width: 150px;
+    background-color: white;
+    top: 50px;
+    left: 80px;
+    border-radius: 50%;
+  }
