@@ -191,3 +191,23 @@ footer a{
     left: 80px;
     border-radius: 50%;
   }
+
+  .employeeImage img{
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+  }
+
+  .cardlist{
+
+    display: flex;
+    justify-content: space-between;
+   flex-wrap: wrap;
+  }
+
+  p{
+
+    font-family: "Lucida Console";
+  }
