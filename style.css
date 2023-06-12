@@ -1,0 +1,127 @@
+body{
+    background-image: url(./assiste/what-are-employee-management-systems\ .jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 970px;
+}
+
+/* Header */
+
+header{
+  
+    height: 40px;
+    background-color: lightskyblue;
+    opacity: 80%;
+}
+
+header h1{
+    
+   position: absolute;
+    left:700px;
+    top: 15px; 
+}
+     
+
+header nav{
+
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+header a{
+
+    position: absolute;
+    top:15px;
+    text-decoration: none;
+    right: 10px;
+
+}
+/* main */
+main{
+   
+       
+        height: 890px;
+ 
+}
+main table{
+    position: absolute;
+    left: 600px;
+    top:150px;
+     border: 5px solid;
+     height: 400px;
+     width: 600px;
+     
+     
+ }
+ 
+ main table th,table tr ,table td{
+     
+    background-color:lightcyan;
+     border: 3px solid;
+     text-align: center;
+     
+ }
+ 
+ 
+
+/* footer */
+footer{
+    opacity: 80%;
+
+    height: 40px;
+    background-color:lightskyblue;
+}
+
+footer h2{
+
+position: relative;
+text-align: center;
+top: 10px;
+}
+
+footer div{
+width: 100px;
+    display: flex;
+align-items: flex-start;
+justify-content:space-around ;
+
+
+
+}
+footer a{
+   
+    text-decoration: none;
+    
+}
+
+.fa {
+ 
+    font-size: 30px;
+    height: 15px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+   
+
+  }
+
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  
+
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+
+    
+  }
+  
