@@ -134,19 +134,41 @@ function registerHandller(event) {
     // console.log(level);
     // console.log(ImageURL);
 
-    console.log(allEmployee);
+    // console.log(allEmployee);
 
     let newEmployee = new Employee(EmployeeID, FullName, Department, level, ImageURL)
     allEmployee.push(newEmployee);
     newEmployee.renderEmployee();
-
+    saveData(newEmployee);
 
 
 
 
 }
+    function saveData(data){
 
+        let stringArr=JSON.stringify(data);
+        localStorage.setItem("emplyee",stringArr);
 
+    }
+
+    function getData(){
+
+        let retriveArr =localStorage.getItem('emplyee');
+        let objArr = JSON.parse(retriveArr);
+        console.log(objArr);
+        if(objArr!=null)
+        {
+            for(let i=0 ;i<objArr.length;i++)
+            {
+
+                new Employee(objArr[i].EmployeeID, objArr[i].FullName, objArr[i].Department, objArr[i].level, objArr[i].ImageURL,objArr[i].Salary);
+            }
+
+        }
+
+    }
+    getData();
 
 
 let GhaziSamer = new Employee(1000, "Ghazi Samer", "Administration", "Senior")

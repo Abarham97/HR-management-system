@@ -2,7 +2,7 @@ body{
     background-image: url(./assiste/what-are-employee-management-systems\ .jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 970px;
+    /* height: 970px; */
 }
 
 /* Header */
@@ -38,12 +38,12 @@ header a{
 
 }
 /* main */
-main{
+/* main{
    
        
         height: 890px;
  
-}
+} */
 main table{
     position: absolute;
     left: 600px;
@@ -67,9 +67,11 @@ main table{
 
 /* footer */
 footer{
+  position: absolute;
     opacity: 80%;
-
+  bottom: 0px;
     height: 40px;
+    width: 100%;
     background-color:lightskyblue;
 }
 
