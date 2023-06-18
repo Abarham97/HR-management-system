@@ -44,7 +44,7 @@ header a{
         height: 890px;
  
 } */
-main table{
+/* main table{
     position: absolute;
     left: 600px;
     top:150px;
@@ -61,7 +61,7 @@ main table{
      border: 3px solid;
      text-align: center;
      
- }
+ } */
  
  
 
@@ -212,4 +212,41 @@ footer a{
   p{
 
     font-family: "Lucida Console";
+  }
+
+  .employeeTable{
+    position: absolute;
+    left: 600px;
+    top:150px;
+     border: 5px solid;
+     height: 400px;
+     width: 600px;
+
+
+  }
+  .employeeTable th{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
+  }
+
+  .employeeTable tr{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
+  }
+
+  .employeeTable td{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
   }
