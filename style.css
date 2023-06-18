@@ -2,7 +2,7 @@ body{
     background-image: url(./assiste/what-are-employee-management-systems\ .jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 970px;
+    /* height: 970px; */
 }
 
 /* Header */
@@ -38,13 +38,13 @@ header a{
 
 }
 /* main */
-main{
+/* main{
    
        
         height: 890px;
  
-}
-main table{
+} */
+/* main table{
     position: absolute;
     left: 600px;
     top:150px;
@@ -61,15 +61,17 @@ main table{
      border: 3px solid;
      text-align: center;
      
- }
+ } */
  
  
 
 /* footer */
 footer{
+  position: absolute;
     opacity: 80%;
-
+  bottom: 0px;
     height: 40px;
+    width: 100%;
     background-color:lightskyblue;
 }
 
@@ -210,4 +212,41 @@ footer a{
   p{
 
     font-family: "Lucida Console";
+  }
+
+  .employeeTable{
+    position: absolute;
+    left: 600px;
+    top:150px;
+     border: 5px solid;
+     height: 400px;
+     width: 600px;
+
+
+  }
+  .employeeTable th{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
+  }
+
+  .employeeTable tr{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
+  }
+
+  .employeeTable td{
+
+    background-color:lightcyan;
+    border: 3px solid;
+    text-align: center;
+    
+
   }

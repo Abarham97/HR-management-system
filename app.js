@@ -13,7 +13,8 @@ function Employee(EmployeeID, FullName, Department, Level, ImageURL, Salary) {
     this.Level = Level;
     this.ImageURL = ImageURL;
     this.Salary = Salary;
-    allEmployee.push(this);
+    // allEmployee.push(this);
+
 
 
 
@@ -89,21 +90,37 @@ Employee.prototype.renderEmployee = function () {
 
     let salEle = document.createElement("p");
     salEle.textContent = (`Salary:  ${this.Salary}`)
+    divCard.append(salEle);
     secCard.appendChild(divCard);
 
-    
+
 
 }
 Employee.prototype.calID = function () {
 
-    this.EmployeeID=Math.floor(Math.random()*9000+1000)
+    this.EmployeeID = Math.floor(Math.random() * 9000 + 1000)
 
 
 }
 
-Employee.prototype.calSalary = function (min, max) {
-
-
+Employee.prototype.calSalary = function () {
+    let min;
+    let max;
+    if (this.Level == "Senior") {
+            min=1500;
+            max=2000;
+    }
+    // console.log(allEmployee[i].calSalary(1500, 2000));
+    else if (this.Level == "Mid-Senior") {
+            min=1000;
+            max=1500;
+    }
+    // console.log(allEmployee[i].calSalary(1000, 1500));
+    else if (this.Level == "Junior") {
+        min=500;
+        max=1000;
+    }
+    // console.log(allEmployee[i].calSalary(500, 1000))
 
     this.Salary = Math.floor(Math.random() * (max - min + 1) + min);
     this.Salary = this.Salary - (this.Salary * 0.075);
@@ -113,7 +130,12 @@ Employee.prototype.calSalary = function (min, max) {
 
 }
 
+function saveData(data) {
 
+    let stringArr = JSON.stringify(data);
+    localStorage.setItem("employee", stringArr);
+
+}
 
 
 
@@ -124,20 +146,24 @@ function registerHandller(event) {
     // console.log(event);
 
 
-    let EmployeeID = this.EmployeeID;
+    let EmployeeID;
     let FullName = event.target.fName.value;
     let Department = event.target.Department.value;
     let level = event.target.level.value;
     let ImageURL = event.target.img.value;
+    let Salary;
     // console.log(FullName);
     // console.log(Department);
     // console.log(level);
     // console.log(ImageURL);
 
-    console.log(allEmployee);
+    // console.log(allEmployee);
 
     let newEmployee = new Employee(EmployeeID, FullName, Department, level, ImageURL)
+    newEmployee.calSalary();
+    newEmployee.calID();
     allEmployee.push(newEmployee);
+    saveData(allEmployee);
     newEmployee.renderEmployee();
 
 
@@ -147,32 +173,48 @@ function registerHandller(event) {
 }
 
 
+function getData() {
+
+    let retriveArr = localStorage.getItem('employee');
+    let objArr = JSON.parse(retriveArr);
+    console.log(objArr);
+    if (objArr) {
+        allEmployee = [];
+        for (let i = 0; i < objArr.length; i++) {
+
+            new Employee(objArr[i].EmployeeID, objArr[i].FullName, objArr[i].Department, objArr[i].level, objArr[i].ImageURL,obj[i].Salary);
+        }
+
+    }
+
+}
 
 
-let GhaziSamer = new Employee(1000, "Ghazi Samer", "Administration", "Senior")
-let LanaAli = new Employee(1001, "Lana Ali", "Finance", "Senior")
-let TamaraAyoub = new Employee(1002, "Tamara Ayoub Ali", "Marketing", "Senior")
-let SafiWalid = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior")
-let OmarZaid = new Employee(1004, "Omar Zaid", "Development", "Senior")
-let RanaSaleh = new Employee(1005, "Rana Saleh", "Development", "Junior")
-let HadiAhmad = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior")
 
-// for(let i=0;i<allEmployee.length;i++)
-// {
+// let GhaziSamer = new Employee(1000, "Ghazi Samer", "Administration", "Senior")
+// let LanaAli = new Employee(1001, "Lana Ali", "Finance", "Senior")
+// let TamaraAyoub = new Employee(1002, "Tamara Ayoub Ali", "Marketing", "Senior")
+// let SafiWalid = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior")
+// let OmarZaid = new Employee(1004, "Omar Zaid", "Development", "Senior")
+// let RanaSaleh = new Employee(1005, "Rana Saleh", "Development", "Junior")
+// let HadiAhmad = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior")
 
-//     // console.log(allEmployee[i].calSalary(500,100));
-//     if(allEmployee[i].Level=="Senior")
-//     console.log(allEmployee[i].calSalary(1500,2000));
-//     else if (allEmployee[i].Level=="Mid-Senior")
-//     console.log(allEmployee[i].calSalary(1000,1500));
-//     else if(allEmployee[i].Level=="Junior")
-//     console.log(allEmployee[i].calSalary(500,1000));
+for (let i = 0; i < allEmployee.length; i++) {
 
-// }
-// for(let i=0;i<allEmployee.length;i++){
+    // console.log(allEmployee[i].calSalary(500,100));
+    if (allEmployee[i].Level == "Senior")
+        console.log(allEmployee[i].calSalary(1500, 2000));
+    else if (allEmployee[i].Level == "Mid-Senior")
+        console.log(allEmployee[i].calSalary(1000, 1500));
+    else if (allEmployee[i].Level == "Junior")
+        console.log(allEmployee[i].calSalary(500, 1000));
 
-//    allEmployee[i].renderEmployee();
+}
+for (let i = 0; i < allEmployee.length; i++) {
 
-// }
+    allEmployee[i].renderEmployee();
+    console.log(allEmployee);
+}
 
-
+console.log(allEmployee);
+// getData();
