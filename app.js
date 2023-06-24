@@ -1,5 +1,18 @@
 
-let allEmployee = [];
+let allEmployee;
+if(localStorage.getItem("employee"))
+{
+    allEmployee=JSON.parse(localStorage.getItem("employee"));
+}
+else
+{
+
+    allEmployee=[];
+}
+
+
+console.log(allEmployee);
+
 let form = document.getElementById("form");
 // let divCard = document.getElementById("employeeCard");
 // let divImg = document.getElementById("employeeImage");
@@ -13,7 +26,7 @@ function Employee(EmployeeID, FullName, Department, Level, ImageURL, Salary) {
     this.Level = Level;
     this.ImageURL = ImageURL;
     this.Salary = Salary;
-    // allEmployee.push(this);
+    allEmployee.push(this);
 
 
 
@@ -162,9 +175,11 @@ function registerHandller(event) {
     let newEmployee = new Employee(EmployeeID, FullName, Department, level, ImageURL)
     newEmployee.calSalary();
     newEmployee.calID();
-    allEmployee.push(newEmployee);
+    console.log(newEmployee.Salary);
+    // allEmployee.push(newEmployee);
     saveData(allEmployee);
     newEmployee.renderEmployee();
+    
 
 
 
@@ -178,15 +193,17 @@ function getData() {
     let retriveArr = localStorage.getItem('employee');
     let objArr = JSON.parse(retriveArr);
     console.log(objArr);
+    console.log("Test",allEmployee);
     if (objArr) {
-        allEmployee = [];
+       
         for (let i = 0; i < objArr.length; i++) {
 
-            new Employee(objArr[i].EmployeeID, objArr[i].FullName, objArr[i].Department, objArr[i].level, objArr[i].ImageURL,obj[i].Salary);
+            new Employee(objArr[i].EmployeeID, objArr[i].FullName, objArr[i].Department, objArr[i].level, objArr[i].ImageURL,objArr[i].Salary);
         }
 
     }
-
+ 
+renderall();
 }
 
 
@@ -209,12 +226,16 @@ for (let i = 0; i < allEmployee.length; i++) {
     else if (allEmployee[i].Level == "Junior")
         console.log(allEmployee[i].calSalary(500, 1000));
 
-}
-for (let i = 0; i < allEmployee.length; i++) {
-
+}//forcal
+function renderall (){
+    for (let i = 0; i < allEmployee.length; i++) {
+        allEmployee[i].calSalary();
     allEmployee[i].renderEmployee();
     console.log(allEmployee);
 }
+}
+
+
 
 console.log(allEmployee);
-// getData();
+getData();
