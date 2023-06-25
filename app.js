@@ -1,17 +1,9 @@
 
-let allEmployee;
-if(localStorage.getItem("employee"))
-{
-    allEmployee=JSON.parse(localStorage.getItem("employee"));
-}
-else
-{
-
-    allEmployee=[];
-}
+let allEmployee=[];
 
 
-console.log(allEmployee);
+
+// console.log(allEmployee);
 
 let form = document.getElementById("form");
 // let divCard = document.getElementById("employeeCard");
@@ -67,10 +59,10 @@ Employee.prototype.renderEmployee = function () {
     let fullNameElement = document.createElement("p");
     fullNameElement.style.marginTop = "100px"
     // fullNameElement.style.fontFamily="Lucida Console";
-    fullNameElement.textContent = (`FullName:  ${fullName}`);
+    fullNameElement.textContent = (`FullName:  ${this.FullName}`);
     divCard.appendChild(fullNameElement);
 
-    this.calID(this.EmployeeID);
+
     let elmployeID = document.createElement("p");
     elmployeID.textContent = (`ID: ${this.EmployeeID}`)
 
@@ -81,21 +73,21 @@ Employee.prototype.renderEmployee = function () {
     let departmentEle = document.createElement("p");
     let depvalue = Department.value;
     // depvalue.style.fontFamily="Lucida Console";
-    departmentEle.textContent = (`Department:  ${depvalue}`);
+    departmentEle.textContent = (`Department:  ${this.Department}`);
     divCard.appendChild(departmentEle);
 
     let level = document.getElementById("level");
     let levelEle = document.createElement("p");
     let levelValue = level.value;
     // levelValue.style.fontFamily="Lucida Console";
-    levelEle.textContent = (`Level:  ${levelValue}`);
+    levelEle.textContent = (`Level:  ${this.Level}`);
     divCard.appendChild(levelEle);
 
     let imgURL = document.getElementById("img").value;
 
     // let imgURL=document.getElementById("img");
     let imgEle = document.createElement("img")
-    imgEle.src = imgURL;
+    imgEle.src = this.ImageURL;
     imgEle.style.height = "150px";
     imgEle.style.width = "150px";
     imgEle.style.borderRadius = "50%";
@@ -193,9 +185,10 @@ function getData() {
     let retriveArr = localStorage.getItem('employee');
     let objArr = JSON.parse(retriveArr);
     console.log(objArr);
-    console.log("Test",allEmployee);
+   
     if (objArr) {
-       
+        
+      
         for (let i = 0; i < objArr.length; i++) {
 
             new Employee(objArr[i].EmployeeID, objArr[i].FullName, objArr[i].Department, objArr[i].level, objArr[i].ImageURL,objArr[i].Salary);
@@ -204,6 +197,7 @@ function getData() {
     }
  
 renderall();
+
 }
 
 
@@ -216,22 +210,25 @@ renderall();
 // let RanaSaleh = new Employee(1005, "Rana Saleh", "Development", "Junior")
 // let HadiAhmad = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior")
 
-for (let i = 0; i < allEmployee.length; i++) {
+// for (let i = 0; i < allEmployee.length; i++) {
 
-    // console.log(allEmployee[i].calSalary(500,100));
-    if (allEmployee[i].Level == "Senior")
-        console.log(allEmployee[i].calSalary(1500, 2000));
-    else if (allEmployee[i].Level == "Mid-Senior")
-        console.log(allEmployee[i].calSalary(1000, 1500));
-    else if (allEmployee[i].Level == "Junior")
-        console.log(allEmployee[i].calSalary(500, 1000));
+//     // console.log(allEmployee[i].calSalary(500,100));
+//     if (allEmployee[i].Level == "Senior")
+//         console.log(allEmployee[i].calSalary(1500, 2000));
+//     else if (allEmployee[i].Level == "Mid-Senior")
+//         console.log(allEmployee[i].calSalary(1000, 1500));
+//     else if (allEmployee[i].Level == "Junior")
+//         console.log(allEmployee[i].calSalary(500, 1000));
 
-}//forcal
+
+//     }
+    //forcal
 function renderall (){
     for (let i = 0; i < allEmployee.length; i++) {
-        allEmployee[i].calSalary();
+        // allEmployee[i].calSalary();
+        console.log("JARDAT:",allEmployee);
     allEmployee[i].renderEmployee();
-    console.log(allEmployee);
+ 
 }
 }
 
@@ -239,3 +236,4 @@ function renderall (){
 
 console.log(allEmployee);
 getData();
+
